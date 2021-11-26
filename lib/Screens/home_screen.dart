@@ -1,5 +1,6 @@
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_task/Screens/category.dart';
 import 'package:flutter_task/Screens/home.dart';
 import 'package:flutter_task/Screens/widgets/widget.dart';
 import 'package:flutter_task/constant/myColor.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentPage = 2;
+  int currentPage = 0;
   final List<Widget> _pages = [
     Home(),
     History(),
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _pages[currentPage],
       bottomNavigationBar: CircleBottomNavigationBar(
-        initialSelection: 2,
+        initialSelection: 0,
         barHeight: viewPadding.bottom > 0 ? barHeightWithNotch : barHeight,
         arcHeight: viewPadding.bottom > 0 ? arcHeightWithNotch : barHeight,
         itemTextOff: viewPadding.bottom > 0 ? 0 : 1,
@@ -81,24 +82,7 @@ class History extends StatelessWidget {
   }
 }
 
-class Search extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: const Center(
-          child: Text(
-            'Search',
-            style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+
 
 class Alarm extends StatelessWidget {
   @override
