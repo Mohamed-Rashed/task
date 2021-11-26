@@ -14,13 +14,11 @@ class DrinkWebServices{
   }
 
   Future<List<dynamic>> getAllDrinks() async {
-    List<dynamic> myData = [];
     try {
       Response response =
       await dio.get('https://flutter-test-api.herokuapp.com/');
       print(response.data.toString());
-      myData.add(response.data);
-      return myData;
+      return response.data;
     } catch (e) {
       print(e.toString());
       return [];

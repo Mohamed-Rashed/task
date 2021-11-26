@@ -124,12 +124,18 @@ class _DringPageState extends State<DringPage> {
                       return GridView.builder(
                         itemCount: drink!.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+                            crossAxisCount: (orientation == Orientation.portrait) ? 2 : 2),
                         itemBuilder: (BuildContext context, int index) {
-                          return new Card(
-                            child: new GridTile(
-                              footer: new Text(drink![index].title),
-                              child: new Text("hello"), //just for testing, will fill with image later
+                          return  SizedBox(
+                            child: Card(
+                              child:  Column(
+                                children: [
+                                  Image.network("${drink![index].avatar}",width: 50,height: 50,),
+                                  Text("${drink![index].title}"),
+                                  Text("${drink![index].subTitle}"),
+                                  Text("${drink![index].price}"),
+                                ],
+                              ),
                             ),
                           );
                         },
